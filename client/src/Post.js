@@ -1,21 +1,25 @@
-import React from 'react';
-import './App.css';
+import {formatISO9075} from "date-fns";
+import {Link} from "react-router-dom";
 
-export default function Post(){
-    return(
+export default function Post({_id,title,summary,cover,createdAt,author}) {
+
+  return (
     <div className="post">
-        <div className="image">
-          <img src="https://techcrunch.com/wp-content/uploads/2023/07/GettyImages-1507057889-e1688662829922.jpg?w=1390&crop=1" alt="" />
-        </div>
-        <div className="texts">
-          <h2>Targets EV skeptics in new series</h2>
-          <p className="info">
-            <a href="/" className="author">Tusshar Paul</a>
-            <time>2023-09-07 10:48</time>
-          </p>
-          <p className="summary">Marvel retiree Robert Downey Jr. has a new show: “Downeys Dream Cars.” It follows the millionaire as he seeks to reconcile two of his hobbies.</p>
-        </div>
+      <div className="image">
+        <Link to={`/contribute/${_id}`}>
+          <img src={'http://localhost:4000/'+cover} alt=""/>
+        </Link>
       </div>
-    );
-
+      <div className="texts">
+        <Link to={`/contribute/${_id}`}>
+        <h2>{title}</h2>
+        </Link>
+        <p className="info">
+          <span className="author">{author.username}</span>
+          <time>{formatISO9075(new Date(createdAt))}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
 }

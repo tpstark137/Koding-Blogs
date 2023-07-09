@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import Contribute from './pages/Contribute';
 import Resources from './pages/Resources';
 import { UserContextProvider } from './components/UserContext';
+import PostPage from './pages/PostPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
     <Route path="/resources" element={<Resources/>} />
     <Route path="/register" element={<Register/>} />
     <Route path="/login" element={<Login/>} />
+    <Route path="/contribute/:id" element={<PostPage />} />
    </Routes>
    </main>
     </UserContextProvider>
