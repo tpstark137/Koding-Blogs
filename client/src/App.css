@@ -95,3 +95,16 @@ button{
 form.login h1, form.register h1{
   text-align: center;
 }
+span.log{
+  color:red;
+  transition: all .3s ease;
+  size: 1.5rem;
+}
+span.log:hover{
+  opacity: 1;
+  transform: translateY(0);
+  color: blue;
+}
+span.cursor{
+  cursor: pointer;
+}
